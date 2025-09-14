@@ -36,20 +36,16 @@ public class UsuarioService {
 
     public boolean cadastrarUsuario(Usuario usuario) {
         try {
-            // Verificar se o usuário já existe
             if (usuarioRepository.getByUsername(usuario.getUsername()).isPresent()) {
-                return false; // Usuário já existe
+                return false;
             }
             
-            // Criptografar a senha
             usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
             
-            // Definir perfil padrão se não especificado
             if (usuario.getPerfil() == null || usuario.getPerfil().isEmpty()) {
                 usuario.setPerfil("USER");
             }
             
-            // Ativar usuário por padrão
             usuario.setAtivo(true);
             
             return usuarioRepository.save(usuario);

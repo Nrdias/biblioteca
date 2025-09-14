@@ -32,7 +32,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         
-        // Adicionar role baseada no perfil do usuário
         if ("BIBLIOTECARIO".equals(usuario.getPerfil())) {
             authorities.add(new SimpleGrantedAuthority("ROLE_BIBLIOTECARIO"));
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
@@ -44,9 +43,9 @@ public class CustomUserDetailsService implements UserDetailsService {
             usuario.getUsername(),
             usuario.getPassword(),
             usuario.isAtivo(),
-            true, // accountNonExpired
-            true, // credentialsNonExpired
-            true, // accountNonLocked
+            true,
+            true,
+            true,
             authorities
         );
     }

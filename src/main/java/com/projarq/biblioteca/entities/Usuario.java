@@ -5,7 +5,7 @@ public class Usuario {
     private String username;
     private String password;
     private String email;
-    private String perfil; // "USER" ou "BIBLIOTECARIO"
+    private String perfil;
     private boolean ativo;
 
     public Usuario() {}
@@ -19,7 +19,6 @@ public class Usuario {
         this.ativo = ativo;
     }
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

@@ -70,7 +70,6 @@ public class LivroController {
     @PreAuthorize("hasRole('BIBLIOTECARIO')")
     public ResponseEntity<String> createLivro(@RequestBody Livro livro) {
         try {
-            // Validações básicas
             if (livro.getTitulo() == null || livro.getTitulo().trim().isEmpty()) {
                 return ResponseEntity.badRequest().body("Título é obrigatório");
             }
